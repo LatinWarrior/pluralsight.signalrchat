@@ -1,0 +1,24 @@
+{
+  "name": "Pluralsight.SignalRChat",
+  "version": "0.0.1",
+  "homepage": "https://github.com/LatinWarrior/pluralsight.signalrchat",
+  "authors": [
+    "Luis Blanco 路易斯.布兰科 <luis_blanco@volusion.com>"
+  ],
+  "description": "ASP.NET SignalR integration with AngularJS",
+  "keywords": [
+    "SignalR",
+    "AngularJS",
+    "Pluralsight",
+    "ASP.NET",
+    "Web.API"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
