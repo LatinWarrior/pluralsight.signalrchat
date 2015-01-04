@@ -38,15 +38,15 @@
     @Scripts.Render("~/bundles/signalr")
     @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/toastr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
     @*@Scripts.Render("~/Scripts/jquery-1.10.2.js")
     @Scripts.Render("~/Scripts/jquery.signalR-2.1.2.js")
     @Scripts.Render("~/Scripts/angular.js")*@
     @Scripts.Render("~/signalr/hubs")
     @*@Scripts.Render("~/Scripts/code")*@
     @Scripts.Render("~/bundles/code")
-    @*<script src="~/signalr/hubs"></script>*@    
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/modernizr")
+    @*<script src="~/signalr/hubs"></script>*@        
     @RenderSection("scripts", required: false)
 </body>
 </html>
