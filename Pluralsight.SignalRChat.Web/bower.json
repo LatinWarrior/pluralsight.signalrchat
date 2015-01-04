@@ -20,5 +20,25 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "exportsOverride": {
+        "bootstrap": {
+            "js": "dist/js/*.*",
+            "css": "dist/css/*.*",
+            "fonts": "dist/fonts/*.*"
+        },
+        "/jquery/": {
+            "": "dist/*.*"
+        },
+        "/angular/": {
+            "": "*.{js,map}"
+        },
+        "modernizr": {
+            "": "modernizr.js"
+        },
+        "respond": {
+          "": "dest/*.*"
+        },
+        "dt-*": { }
+    }
 }

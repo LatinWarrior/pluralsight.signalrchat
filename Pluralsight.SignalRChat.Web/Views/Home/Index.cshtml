@@ -3,6 +3,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div style="width: 450px;" ng-controller="mainCtrl">
+    <div class="panel panel-info" style="margin-top: 30px; margin-left: 20px;">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3 class="panel-title">Real Time Chat</h3>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="scrollable">
+                    <div ng-repeat="msg in messages">{{msg.message}}</div>
+                </div>
+                <div>
+                    <input ng-model="newMessage" class="form-control input-sm pull-left" style="width: 80%l" type="text"/>
+                    <button ng-click="sendMessage()" class="pull-right btn btn-primary btn-sm">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 @*<div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
