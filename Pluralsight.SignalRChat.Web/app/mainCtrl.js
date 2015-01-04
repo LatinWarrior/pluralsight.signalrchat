@@ -1,4 +1,4 @@
-﻿angular.module('app').controller('mainCtrl', function($scope, chat) {
+﻿angular.module('app').controller('mainCtrl', function($scope, chat, toastr) {
 
     $scope.messages = [];
 
@@ -12,13 +12,13 @@
     $scope.joinRoom = function() {
         $scope.inRoom = true;
         // Tell the server to add person to the room.
-        chat.server.joinRoom($scope.roomName);
+        chat.server.joinRoom($scope.roomName, $scope.name);
     };
 
     $scope.leaveRoom = function() {
         $scope.inRoom = false;
         // Tell the server to remove the person from the room.
-        chat.server.leaveRoom($scope.roomName);
+        chat.server.leaveRoom($scope.roomName, $scope.name);
     };
 
     // Internal code to Angular. Should call displayMessage but not onNewMessage. 
@@ -46,6 +46,10 @@
         // Push an object onto the array of messages, not a string. 
         // Otherwise, if there are duplicate messages, Angular won't be able to bind them to the ng-repeat.
         $scope.messages.push({ message: message });
-    }
+    };
+
+    chat.client.newNotification = function onNewNotification(notification) {
+        toastr.success(notification);
+    };
 
 });

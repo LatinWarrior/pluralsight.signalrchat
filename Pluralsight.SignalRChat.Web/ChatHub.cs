@@ -15,14 +15,16 @@ namespace Pluralsight.SignalRChat.Web
             //Clients.Client(Context.ConnectionId).newMessage("You: " + data.Message);
         }
 
-        public void JoinRoom(string roomName)
+        public void JoinRoom(string roomName, string name)
         {
+            Clients.OthersInGroup(roomName).newNotification(name + " has joined the room.");
             // Context represents the current client. This will also create the group if it does not already exist.
             Groups.Add(Context.ConnectionId, roomName);
         }
 
-        public void LeaveRoom(string roomName)
+        public void LeaveRoom(string roomName, string name)
         {
+            Clients.OthersInGroup(roomName).newNotification(name + " has left the room.");
             Groups.Remove(Context.ConnectionId, roomName);
         }
     }
