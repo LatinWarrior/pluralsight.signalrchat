@@ -1,8 +1,28 @@
-﻿angular.module('app').controller('mainCtrl', function($scope, chat) {
+﻿angular.module('app').controller('mainCtrl', function ($scope, chat) {
+
     $scope.messages = [];
 
+    $scope.inRoom = false;
+    $scope.nameSet = false;
+
+    $scope.setName = function() {
+        $scope.nameSet = true;
+    };
+
+    $scope.joinRoom = function() {
+        $scope.inRoom = true;
+        // Tell the server to add person to the room.
+        chat.server.joinRoom($scope.roomName);
+    };
+
+    $scope.leaveRoom = function() {
+        $scope.inRoom = false;
+        // Tell the server to remove the person from the room.
+        chat.server.leaveRoom($scope.roomName);
+    };
+
     $scope.sendMessage = function() {
-        chat.server.sendMessage($scope.newMessage);
+        chat.server.sendMessage({ name: $scope.name, message: $scope.newMessage, roomName: $scope.roomName });
         // send scope.newMessage
         $scope.newMessage = "";
     };
