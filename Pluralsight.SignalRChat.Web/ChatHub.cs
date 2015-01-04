@@ -10,7 +10,9 @@ namespace Pluralsight.SignalRChat.Web
         {
             //Clients.All.newMessage(message);
             // Send messages to only those clients who are members of a group.
-            Clients.Group(data.RoomName).newMessage(data.Name + ": " + data.Message);
+            Clients.Group(data.RoomName, Context.ConnectionId).newMessage(data.Name + ": " + data.Message);
+            // Comment this out and let the client itself in the JavaScript code send the message to himself.
+            //Clients.Client(Context.ConnectionId).newMessage("You: " + data.Message);
         }
 
         public void JoinRoom(string roomName)
